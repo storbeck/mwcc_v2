@@ -6,8 +6,18 @@ import Actionbar from './actionbar'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import Nag from './nag'
 import {theme} from './theme';
+import {withStyles} from '@material-ui/styles'
 
-export default function Layout({ children }) {
+const styles = theme => ({
+  main: {
+    marginTop: 99,
+    [theme.breakpoints.up('md')]: {
+      marginTop: 0
+    },
+  }
+})
+
+const Layout = ({ classes, children }) => {
   const [drawer_open, toggleDrawer] = useState(false)
 
   return (
@@ -32,7 +42,7 @@ export default function Layout({ children }) {
       <SideDrawer open={drawer_open} toggle={(status) => toggleDrawer(status)} />
       
       <Nag />
-      <div style={{marginTop: 99}}>
+      <div className={classes.main}>
         {children}
       </div>
       <div style={{marginBottom: 95}}>
@@ -41,3 +51,6 @@ export default function Layout({ children }) {
     </MuiThemeProvider>
   )
 }
+
+
+export default withStyles(styles)(Layout)

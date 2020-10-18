@@ -9,7 +9,19 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "Expert Construction - Etna, OH - Mays-Wilson Construction Company, LLC"
+    title: "Expert Construction - Etna, OH - Mays-Wilson Construction Company, LLC",
+    description: "This is where I write my thoughts.",
+    links: [
+      { name: 'Home', route: '/' },
+      { name: 'Our Process', route: '/general-contractor' },
+      { name: 'Residential Roofing', route: '/roofing-installation' },
+      { name: 'Commercial Roof Repairs', route: '/roofing-repair' },
+      { name: 'Gutters', route: '/gutter-installation' },
+      { name: 'Siding', route: '/siding-installation' },
+      { name: 'Products', route: '/our-brands' },
+      { name: 'Project Gallery', route: '/photo-gallery' },
+      { name: 'Contact Us Today!', route: '/find-us' },
+    ]
   },
   plugins: [
     {

@@ -1,38 +1,111 @@
 import React from 'react';
-import { AppBar, Grid, Toolbar, IconButton, Button,} from "@material-ui/core"
+import { AppBar, Grid, Toolbar, IconButton, Button, Typography, Link} from "@material-ui/core"
 import MenuIcon from '@material-ui/icons/Menu'
 import PhoneIcon from '@material-ui/icons/Phone'
 import logo from '../images/appbar.jpg';
-import styled from 'styled-components'
+import Facebook from "../images/icons/facebook.svg"
+import Instagram from "../images/icons/instagram.svg"
+import {withStyles} from '@material-ui/styles'
+import SocialIcons from './socialicons'
 
-const Wrapper = styled.div`
-    header {
-        background-color: rgb(1, 35, 64);
-    }
-`
+const styles = theme => ({
+    root: {
+        [theme.breakpoints.up('md')]: {
+            position: 'relative'
+        },
+        position: 'fixed',
+        padding: '15px 0',
+        backgroundColor: 'rgb(1, 35, 64)',
+        minHeight: 119,
+    },
+    mobileOnly: {
+        [theme.breakpoints.up('md')]: {
+            display: 'none',
+        },
+    },
+    desktopOnly : {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none',
+        }
+    },
+    headerCallBtn: {
+        width: 300,
+        height: 75,
+        fontSize: '1.8em',
+    },
+    icon_btn: {
+        [theme.breakpoints.up('md')]: {
+            display: 'none'
+        },
+    },
+    toolbar: {
+        margin: '10px',
+        paddingLeft: '16px',
+        right: 0,
+        position: 'relative',
+        width: '100%',
+        background: 'transparent',
+        display: 'flex',
+        flexDirection: 'column'
+    },
 
-const Header = props => {
-    console.log(props)
+})
+
+const links = [
+    { name: 'Home', route: '/' },
+    { name: 'Our Process', route: '/general-contractor' },
+    { name: 'Residential Roofing', route: '/roofing-installation' },
+    { name: 'Commercial Roof Repairs', route: '/roofing-repair' },
+    { name: 'Gutters', route: '/gutter-installation' },
+    { name: 'Siding', route: '/siding-installation' },
+    { name: 'Products', route: '/our-brands' },
+    { name: 'Project Gallery', route: '/photo-gallery' },
+    { name: 'Contact Us Today!', route: '/find-us' },
+  ]
+
+const Header = ({classes, open}) => {
 
     return (
-        <Wrapper>
-            <AppBar position="fixed" style={{padding: "15px 0"}}>
-                <Toolbar>
-                    <Grid justify='space-between' container >
-                        <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => props.open()}>
-                            <MenuIcon />
-                        </IconButton>
-                        <img src={logo} style={{width: 110, height: 69, borderRadius: 10}}/>
+        <AppBar className={classes.root}>
+            <Toolbar className={classes.toolbar}>
+                <Grid justify='space-between' container >
+                    <IconButton className={classes.icon_btn} edge="start" color="inherit" aria-label="menu" onClick={() => open()}>
+                        <MenuIcon />
+                    </IconButton>
+                    <div className={classes.desktopOnly}>
+                        <SocialIcons>
+                            <a href="https://www.facebook.com/MaysWilsonC/" target="_blank"><img src={Facebook }alt="Facebook" /></a>
+                            <a href="https://www.instagram.com/roofthirty/" target="_blank"><img src={Instagram} alt="Instagram" /></a>
+                        </SocialIcons>
+
+                        <Typography variant="subtitle2" component="p" style={{color: "white"}}>Locally Owned & Operated</Typography>
+                        <Typography variant="subtitle2" component="p" style={{color: "white"}}>Serving Columbus Ohio & the Surrounding Area</Typography>
+                    </div>
+                    <img src={logo} style={{width: 110, height: 69, borderRadius: 10}}/>
+                    <div className={classes.mobileOnly}>
                         <Button color="inherit">
                             <a href="tel:614-532-3026" style={{color: "white", marginTop: 5}}>
                                 <PhoneIcon color="inherit" />
                             </a>
                         </Button>
-                    </Grid>
-                </Toolbar>
-            </AppBar>
-        </Wrapper>
+                    </div>
+                    <div className={classes.desktopOnly}>
+                        <Button className={classes.headerCallBtn} variant="contained" color="primary" size="large" onClick={() => window.location='tel:614-532-3026'}>
+                            <PhoneIcon color="inherit" style={{marginRight: 10}}/> (614) 532-3026
+                        </Button>
+                    </div>
+                </Grid>
+                <div className={classes.desktopOnly} style={{width: '100%'}}>
+                    <div style={{position: 'absolute', left: -10, right: 0, height: 1, backgroundColor: 'rgb(2, 48, 89)', marginTop: 20}}>&nbsp;</div>
+                    <div style={{marginTop: 40, display: 'flex', justifyContent: 'space-around', width: '100%'}}>
+                        { links.map(link => <Link href={link.route} style={{color: 'white', fontWeight: 500}}>{link.name}</Link>) }
+                    </div>
+                </div>
+            </Toolbar>
+        </AppBar>
     );
 }
 
-export default Header;
+
+
+export default withStyles(styles)(Header)

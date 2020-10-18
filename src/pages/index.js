@@ -1,8 +1,9 @@
 import React from "react"
-import {Typography, Button, Container, Paper} from "@material-ui/core"
+import {Typography, Button, Container} from "@material-ui/core"
 import {Link} from "gatsby-theme-material-ui"
 import Carousel from 'react-material-ui-carousel'
 import styled from 'styled-components'
+import {withStyles} from '@material-ui/styles'
 
 // Internal Components
 import Layout from '../components/layout'
@@ -98,7 +99,21 @@ function Item(props)
     )
 }
 
-export default function Home() {
+const styles = theme => ({
+  article: {
+    [theme.breakpoints.up('md')]: {
+      display: 'flex'
+    },
+  },
+  articleImages: {
+    [theme.breakpoints.up('md')]: {
+      width: 300
+    },
+  }
+})
+
+
+const Home = ({ classes }) => {
   return (
     <Layout>
       <Hero img={heroImg}>
@@ -109,10 +124,14 @@ export default function Home() {
       <Container>
         <Typography variant="h5" component="h2" style={{marginTop: 40}}><Highlight>Property Restoration</Highlight> Experts!</Typography>
         <Split dark={true} />
-        <Typography variant="p" component="p"><strong>Mays-Wilson Construction Company, LLC in Columbus, Ohio </strong> is a locally owned, general contracting company that specializes in home improvement projects including roofing, siding, gutters, and remodeling. We’ve served the Columbus Ohio and surrounding areas for a combined 35+ years. It is our goal to provide every homeowner with the best possible service and products. Our values include <strong>integrity, quality,</strong> and <strong>customer focus</strong> and with these values, we ensure that each and every homeowner and home is treated with deserved respect and diligence. </Typography>
-        <br />
-        <Typography variant="p" component="p">Proudly serving the communities of Columbus, Powell, Westerville, Lewis Center,  Gahanna, Galena, Dublin, Upper Arlington,  New Albany, Pickerington, Reynoldsburg, Grove City, Groveport, Pataskala, Worthington, Clintonville, Hilliard, Sunbury, Canal Winchester, Granville, Plain City, Blacklick, Grandview Heights, Bexley, Johnstown and Franklin, Delaware and Licking Counties.</Typography>
-        <ImageContainer image={roofRepairImg} alt="Roof Repair — Etna, OH — Mays-Wilson Construction Company, LLC" />
+        <div className={classes.article}>
+          <article>
+            <Typography variant="p" component="p"><strong>Mays-Wilson Construction Company, LLC in Columbus, Ohio </strong> is a locally owned, general contracting company that specializes in home improvement projects including roofing, siding, gutters, and remodeling. We’ve served the Columbus Ohio and surrounding areas for a combined 35+ years. It is our goal to provide every homeowner with the best possible service and products. Our values include <strong>integrity, quality,</strong> and <strong>customer focus</strong> and with these values, we ensure that each and every homeowner and home is treated with deserved respect and diligence. </Typography>
+            <br />
+            <Typography variant="p" component="p">Proudly serving the communities of Columbus, Powell, Westerville, Lewis Center,  Gahanna, Galena, Dublin, Upper Arlington,  New Albany, Pickerington, Reynoldsburg, Grove City, Groveport, Pataskala, Worthington, Clintonville, Hilliard, Sunbury, Canal Winchester, Granville, Plain City, Blacklick, Grandview Heights, Bexley, Johnstown and Franklin, Delaware and Licking Counties.</Typography>
+          </article>
+          <ImageContainer className={classes.articleImages} image={roofRepairImg} alt="Roof Repair — Etna, OH — Mays-Wilson Construction Company, LLC" />
+        </div>
       </Container>
       <Container style={{backgroundImage: `url(${topdownImg})`, backgroundSize: 'cover', marginTop: 40, backgroundPosition: '50% 50%', height: 900, position: "relative"}}>
         <Darken /><Darken />
@@ -129,20 +148,24 @@ export default function Home() {
         </div>
       </Container>
       <Container>
-        <ImageContainer flipped={true} image={whyMaysWilsonImg} alt="Roof Repair — Etna, OH — Mays-Wilson Construction Company, LLC" />
-        <Typography variant="h5" component="h2" style={{marginTop: 40}}>Why Mays-Wilson Construction?</Typography>
-        <Split dark={true} />
-        <ul>
-          <li>No-Obligation Estimates</li>
-          <li>Fully Qualified & Insured</li>
-          <li>Written Warranties</li>
-          <li>References Available</li>
-          <li>Over 35+ Combined Experience</li>
-          <li>We are storm restoration experts</li>
-          <li>BBB Member</li>
-          <li>24-Hour Emergency Service</li>
-          <li>We Work With Your Insurance</li>
-        </ul>
+        <div className={classes.article}>
+          <ImageContainer flipped={true} image={whyMaysWilsonImg} alt="Roof Repair — Etna, OH — Mays-Wilson Construction Company, LLC" />
+          <article>
+            <Typography variant="h5" component="h2" style={{marginTop: 40}}>Why Mays-Wilson Construction?</Typography>
+            <Split dark={true} />
+            <ul>
+              <li>No-Obligation Estimates</li>
+              <li>Fully Qualified & Insured</li>
+              <li>Written Warranties</li>
+              <li>References Available</li>
+              <li>Over 35+ Combined Experience</li>
+              <li>We are storm restoration experts</li>
+              <li>BBB Member</li>
+              <li>24-Hour Emergency Service</li>
+              <li>We Work With Your Insurance</li>
+            </ul>
+          </article>
+        </div>
       </Container>
       <Container>
         <Typography variant="h5" component="h2" style={{marginTop: 40}}>Meet the Team</Typography>
@@ -217,3 +240,6 @@ export default function Home() {
     </Layout>
   )
 }
+
+
+export default withStyles(styles)(Home)

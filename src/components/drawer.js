@@ -5,6 +5,7 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 import {Link} from "gatsby"
 import styled from "styled-components";
+import SocialIcons from './socialicons'
 import Facebook from "../images/icons/facebook.svg"
 import Instagram from "../images/icons/instagram.svg"
 
@@ -38,15 +39,6 @@ a {
         visibility: visible;
     }
 }
-`
-
-const SocialIcons = styled.div`
-    img { 
-        width: 32px;
-        border-radius: 50%;
-        margin-right: 10px;
-        cursor: pointer;
-    }
 `
 
 const SideDrawer = props => {
