@@ -1,5 +1,6 @@
 import React from 'react';
 import { AppBar, Grid, Toolbar, IconButton, Button, Typography, Link} from "@material-ui/core"
+import links from '../data/links'
 import MenuIcon from '@material-ui/icons/Menu'
 import PhoneIcon from '@material-ui/icons/Phone'
 import logo from '../images/appbar.jpg';
@@ -51,17 +52,7 @@ const styles = theme => ({
 
 })
 
-const links = [
-    { name: 'Home', route: '/' },
-    { name: 'Our Process', route: '/general-contractor' },
-    { name: 'Residential Roofing', route: '/roofing-installation' },
-    { name: 'Commercial Roof Repairs', route: '/roofing-repair' },
-    { name: 'Gutters', route: '/gutter-installation' },
-    { name: 'Siding', route: '/siding-installation' },
-    { name: 'Products', route: '/our-brands' },
-    { name: 'Project Gallery', route: '/photo-gallery' },
-    { name: 'Contact Us Today!', route: '/find-us' },
-  ]
+
 
 const Header = ({classes, open}) => {
 
@@ -74,14 +65,14 @@ const Header = ({classes, open}) => {
                     </IconButton>
                     <div className={classes.desktopOnly}>
                         <SocialIcons>
-                            <a href="https://www.facebook.com/MaysWilsonC/" target="_blank"><img src={Facebook }alt="Facebook" /></a>
-                            <a href="https://www.instagram.com/roofthirty/" target="_blank"><img src={Instagram} alt="Instagram" /></a>
+                            <a href="https://www.facebook.com/MaysWilsonC/" target="_blank" rel="noreferrer"><img src={Facebook }alt="Facebook" /></a>
+                            <a href="https://www.instagram.com/roofthirty/" target="_blank" rel="noreferrer"><img src={Instagram} alt="Instagram" /></a>
                         </SocialIcons>
 
                         <Typography variant="subtitle2" component="p" style={{color: "white"}}>Locally Owned & Operated</Typography>
                         <Typography variant="subtitle2" component="p" style={{color: "white"}}>Serving Columbus Ohio & the Surrounding Area</Typography>
                     </div>
-                    <img src={logo} style={{width: 110, height: 69, borderRadius: 10}}/>
+                    <img src={logo} alt="Mays-Wilson Construction Company" style={{width: 110, height: 69, borderRadius: 10}}/>
                     <div className={classes.mobileOnly}>
                         <Button color="inherit">
                             <a href="tel:614-532-3026" style={{color: "white", marginTop: 5}}>

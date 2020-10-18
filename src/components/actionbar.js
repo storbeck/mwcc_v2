@@ -1,30 +1,34 @@
 import React from 'react';
 import { Button, Fab, Container} from "@material-ui/core"
 import MenuIcon from '@material-ui/icons/Menu'
-import styled from 'styled-components'
+import {withStyles} from '@material-ui/styles'
 
-const Wrapper = styled.div`
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 75px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, .8))
-`
+const styles = (theme) => ({
+    root: {
+        position: 'fixed',
+        bottom: 0,
+        right: 0,
+        left: 0,
+        height: 75,
+        background: 'linear-gradient(transparent, rgba(0, 0, 0, .8))',
+        [theme.breakpoints.up('md')]: {
+            display: 'none'
+        }
+    }
+})
 
-const Actionbar = props => {
-    console.log(props)
+const Actionbar = ({classes}) => {
 
     return (
-        <Wrapper>
+        <div className={classes.root}>
             <Container style={{display: "flex", justifyContent: "space-between"}}>
                 <Fab color="primary" aria-label="menu" style={{marginRight: 10}}>
                     <MenuIcon />
                 </Fab>
                 <Button variant="contained" color="primary" size="large" style={{flexGrow: 1}} aria-label="Contact">Contact</Button>
             </Container>
-        </Wrapper>
+        </div>
     );
 }
 
-export default Actionbar;
+export default withStyles(styles)(Actionbar);

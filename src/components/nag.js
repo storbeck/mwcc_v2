@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { withStyles } from '@material-ui/core/styles';
-import styled from 'styled-components'
 import MenuIcon from '@material-ui/icons/Menu'
 import { MenuItem, Menu, IconButton, Button, Typography,} from "@material-ui/core"
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -9,48 +7,74 @@ import RoomIcon from '@material-ui/icons/Room';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import EventIcon from '@material-ui/icons/Event';
 import CloseIcon from '@material-ui/icons/Close';
+import {withStyles} from '@material-ui/styles'
 
-const Wrapper = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .7);
-    overflow: hidden;
-    z-index: 2;
-`
+const styles = (theme) => ({
+    root: {
+        zIndex: 3,
+        [theme.breakpoints.up('md')]: {
 
-const Popup = styled.div`
-    position: absolute;
-    bottom: -200px;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background-color: white;
-    padding: 30px 20px;
-    animation: slide 1s forwards;
-
-    @keyframes slide {
-        100% { bottom: 0 }
+        }
+    },
+    shade: {
+        display: 'block',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, .7)',
+        overflow: 'hidden',
+        zIndex: 3,
+        [theme.breakpoints.up('md')]: {
+            display: 'none',
+        },
+    },
+    popup: {
+        position: 'fixed',
+        zIndex: 3,
+        bottom: -200,
+        left: 0,
+        right: 0,
+        height: 200,
+        backgroundColor: 'white',
+        padding: '30px 20px',
+        animation: '$slide 1s forwards',
+        [theme.breakpoints.up('md')]: {
+            right: 40,
+            left: 'auto',
+            width: 350,
+            borderTopLeftRadius: 5,
+            borderTopRightRadius: 5,
+            boxShadow: '0 0 4px rgba(0, 0, 0, .2)'
+        }
+    },
+    '@keyframes slide': {
+        '100%': { bottom: 0 }
+    },
+    header: {
+        marginBottom: 10
+    },
+    hidden: {
+        display: 'none'
+    },
+    closeBtn: {
+        position: 'absolute',
+        top: 0,
+        right: 0
+    },
+    contactBtn: {
+        display: 'none',
+        [theme.breakpoints.up('md')]: {
+            position: 'fixed',
+            right: 80,
+            bottom: 0,
+            padding: '15px 60px',
+            boxShadow: '0 -2px 15px rgba(0, 0, 0, .5)',
+            zIndex: 3
+        }
     }
-
-    h1 {
-        margin-bottom: 10px;
-    }
-
-    button:nth-child(2) {
-        border-radius: 50%;
-        padding: 0;
-        width: 50px !important;
-    }
-
-    #closeBtn {
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-`
+})
 
 const StyledMenu = withStyles({
     paper: {
@@ -72,7 +96,7 @@ const StyledMenu = withStyles({
     />
   ));
 
-const Nag = props => {
+const Nag = ({classes}) => {
     const [open, toggleNag] = useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -84,16 +108,14 @@ const Nag = props => {
         setAnchorEl(null);
     };
 
-    // Open after set amount of time
-    // setTimeout(() => toggleNag(true), 2000)
-
-    if (open) {
-        return (
-            <Wrapper>
-                <Popup>
-                    <IconButton id="closeBtn" color="default" onClick={() => toggleNag(false)}><CloseIcon /></IconButton>
+    return (
+        <div className={classes.root}>
+            <div className={open ? undefined : classes.hidden}>
+                <div className={classes.shade}>&nbsp;</div>
+                <div className={classes.popup}>
+                    <IconButton className={classes.closeBtn} color="default" onClick={() => toggleNag(false)}><CloseIcon /></IconButton>
                     <div className="container">
-                        <Typography variant="h5" component="h1">Let's Talk!</Typography>
+                        <Typography className={classes.header} variant="h5" component="h1">Let's Talk!</Typography>
                         <Typography variant="subtitle" component="p">Thanks for stopping by! We're here to help, please don't hestitate to reach out.</Typography>
                         <div style={{display: "flex", marginTop: 20}}>
                             <Button variant="contained" color="primary" size="large" style={{flexGrow: 1}}>Schedule Now</Button>
@@ -117,15 +139,20 @@ const Nag = props => {
                                     <ListItemText primary="Get Directions" />
                                 </MenuItem>
                             </StyledMenu>
-                            <IconButton variant="outlined" color="default" onClick={handleClick}><MenuIcon /></IconButton>
+                            <IconButton color="default" onClick={handleClick}><MenuIcon /></IconButton>
                         </div>
                     </div>
-                </Popup>
-            </Wrapper>
-        )
-    } else {
-        return <div></div>
-    }
+                </div>
+            </div>
+            <div className={open ? classes.hidden : undefined}>
+                <Button className={classes.contactBtn} 
+                    variant="contained" 
+                    color="primary" 
+                    size="large" 
+                    onClick={() => toggleNag(true)}>Contact</Button>
+            </div>
+        </div>
+    )
 }
 
-export default Nag
+export default withStyles(styles)(Nag)

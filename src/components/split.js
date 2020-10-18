@@ -1,23 +1,26 @@
 import React from 'react';
-import styled from 'styled-components'
+import {withStyles} from '@material-ui/styles'
 
-const SplitDark = styled.div`
-  height: 5px;
-  width: 60px;
-  background-color: rgb(4, 76, 146);
-  margin: 20px 0;
-`
+const styles = (theme) => ({
+    root: {
+      display: 'inline-block',
+      height: 5,
+      width: 60,
+      marginTop: 20,
+      marginBottom: 20,
+    },
+    light: {
+      backgroundColor: 'white'
+    },
+    dark: {
+      backgroundColor: 'rgb(4, 76, 146)'
+    }
+})
 
-const SplitLight = styled.div`
-  height: 5px;
-  width: 60px;
-  background-color: white;
-  margin: 20px 0;
-`
-
-const Split = props => (
-
-    props.dark ? <SplitDark /> : <SplitLight />
+const Split = ({classes, dark = false}) => (
+  <div className={dark 
+    ? `${classes.root} ${classes.dark}` 
+    : `${classes.root}  ${classes.light}`} />
 )
 
-export default Split;
+export default withStyles(styles)(Split);

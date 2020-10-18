@@ -1,9 +1,16 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-export const theme = createMuiTheme({
-  palette: {
-    primary: {
-      // main: 'rgb(1, 35, 64)',
-      main: 'rgb(4, 76, 146)'
-    },
+const theme = createMuiTheme()
+
+theme.palette.primary = {
+  main: 'rgb(4, 76, 146)',
+  contrastText: 'white',
+}
+
+theme.typography.h5 = {
+  [theme.breakpoints.up('md')]: {
+    fontSize: '2.4rem',
+    fontWeight: 400
   },
-});
+}
+
+export default theme;

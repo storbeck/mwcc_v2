@@ -75,8 +75,8 @@ const SideDrawer = props => {
       <List>
         <ListItem>
             <SocialIcons>
-                <a href="https://www.facebook.com/MaysWilsonC/" target="_blank"><img src={Facebook }alt="Facebook" /></a>
-                <a href="https://www.instagram.com/roofthirty/" target="_blank"><img src={Instagram} alt="Instagram" /></a>
+                <a href="https://www.facebook.com/MaysWilsonC/" target="_blank" rel="noreferrer"><img src={Facebook }alt="Facebook" /></a>
+                <a href="https://www.instagram.com/roofthirty/" target="_blank" rel="noreferrer"><img src={Instagram} alt="Instagram" /></a>
             </SocialIcons>
         </ListItem>
         {links.map(

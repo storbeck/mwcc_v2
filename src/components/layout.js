@@ -5,7 +5,7 @@ import SideDrawer from './drawer'
 import Actionbar from './actionbar'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import Nag from './nag'
-import {theme} from './theme';
+import theme from './theme';
 import {withStyles} from '@material-ui/styles'
 
 const styles = theme => ({
