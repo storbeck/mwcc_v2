@@ -2,7 +2,6 @@ import React from "react"
 import {Typography, Button, Container} from "@material-ui/core"
 import {Link} from "gatsby-theme-material-ui"
 import Carousel from 'react-material-ui-carousel'
-import styled from 'styled-components'
 import {withStyles} from '@material-ui/styles'
 
 // Internal Components

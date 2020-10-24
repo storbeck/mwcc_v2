@@ -6,16 +6,22 @@ import { withStyles } from "@material-ui/styles"
 // Internal Components
 import Layout from "../components/layout"
 import Split from "../components/split"
-import ImageContainer from "../components/imagecontainer"
 import Darken from "../components/darken"
 
 // Images
-import generalContractorImg from "../images/general_contractor.jpg"
 import topdownImg from "../images/topdown.jpg"
-import insuranceRestorationExpertsImg from "../images/insuranceRestorationExperts.jpg"
 import generalContractor1Img from "../images/generalContractor1.jpg"
 import generalContractor2Img from "../images/generalContractor2.jpg"
 import generalContractor3Img from "../images/generalContractor3.jpg"
+import proj1 from "../images/projects/proj1.jpg"
+import proj2 from "../images/projects/proj2.jpg"
+import proj3 from "../images/projects/proj3.jpg"
+import proj4 from "../images/projects/proj4.jpg"
+import proj5 from "../images/projects/proj5.jpg"
+import proj6 from "../images/projects/proj6.jpg"
+import proj7 from "../images/projects/proj7.jpg"
+import proj8 from "../images/projects/proj8.jpg"
+import proj9 from "../images/projects/proj9.jpg"
 
 const styles = theme => ({
   root: {
@@ -69,9 +75,20 @@ const styles = theme => ({
         width: "30%",
     }
   },
+  galleryContainer: {
+    display: 'grid',
+    gridGap: 5,
+    gridTemplateColumns: 'repeat(3, 1fr)'
+  },
+  galleryImg: {
+    maxWidth: 300,
+    height: 300,
+    border: '1px solid white',
+    objectFit: 'cover'
+  }
 })
 
-const GeneralContractor = ({ classes }) => {
+const PhotoGallery = ({ classes }) => {
   return (
     <Layout>
       <div className={classes.root}>
@@ -80,29 +97,16 @@ const GeneralContractor = ({ classes }) => {
             <article className={classes.text}>
               <Typography variant="h3" component="h2" style={{ marginTop: 40 }}>
                 <span className={classes.highlight}>
-                  General Contractor Serving the{" "}
+                View Our{" "}
                 </span>{" "}
-                Central Ohio Area
+                Photos
               </Typography>
               <Split dark={true} />
               <Typography variant="p" component="p">
-                <strong>
-                  Mays-Wilson Construction Company, LLC in Columbus, Ohio{" "}
-                </strong>{" "}
-                serving the Columbus Ohio area, is a family-owned and operated
-                company and our main goal to provide our customers with
-                outstanding service and quality products. We operate with family
-                and home in mind, knowing a house is not just a house, but a
-                home where love and family grows. It is our dedication to caring
-                for our customers’ homes as if they were our own.
+              <strong>Mays-Wilson Construction Company, LLC</strong> in <strong>Etna, OH</strong>, invites 
+              you to view some of our recent projects below.
               </Typography>
             </article>
-            <div className={classes.image}>
-              <ImageContainer
-                image={generalContractorImg}
-                alt="Roofing Installation — Etna, OH — Mays-Wilson Construction Company, LLC"
-              />
-            </div>
           </div>
         </Container>
         <Container
@@ -117,51 +121,54 @@ const GeneralContractor = ({ classes }) => {
         >
           <Darken />
           <Darken />
-          <div style={{ zIndex: 0, position: "relative", textAlign: "center" }}>
-            <div className={classes.sectionTitle}>
+          <div style={{ zIndex: 0, position: "relative"}}>
+            <div className={classes.sectionTitle} style={{ textAlign: "center" }}>
               <Typography
                 variant="h5"
                 component="h2"
                 style={{ color: "white", paddingTop: 40 }}
               >
-                Turnkey Solutions
+                Our Past Projects
               </Typography>
               <Split />
             </div>
-            <span style={{ color: "white" }}>
-              We offer turnkey solutions so you can start generating income as
-              quickly as possible! If you purchased a home and need repairs done
-              quickly, we can help restore any property with our renovation and
-              repair experts. Property restoration is our specialty. If you are
-              looking for more information give our team a call today.
-            </span>
-          </div>
-        </Container>
-        <Container style={{ marginTop: 40 }}>
-          <div className={classes.section}>
-            <div className={classes.image}>
-              <ImageContainer
-                flipped={true}
-                image={insuranceRestorationExpertsImg}
-                alt="Roof Repair — Etna, OH — Mays-Wilson Construction Company, LLC"
-              />
+            <Typography variant="p" component="p" style={{ color: "white" }}>
+            <strong>Mays-Wilson Construction Company, LLC</strong> in <strong>Etna, OH</strong>, believes 
+            in only using the best products on the market to increase the life of any product we install 
+            for your home or business. We work with brands that we trust and know will last longer than other 
+            products on the market.
+
+            </Typography>
+            <br />
+            <div className={classes.galleryContainer}>
+                <div className={classes.galleryImg}>
+                    <img className={classes.galleryImg} alt="Gallery: Inspection" src={proj1} />
+                </div>
+                <div className={classes.galleryimg}>
+                    <img className={classes.galleryImg} alt="Gallery: Materials" src={proj2} />
+                </div>
+                <div className={classes.galleryimg}>
+                    <img className={classes.galleryImg} alt="Gallery: Completed" src={proj3} />
+                </div>
+                <div className={classes.galleryimg}>
+                    <img className={classes.galleryImg} alt="Gallery: Crane" src={proj4} />
+                </div>
+                <div className={classes.galleryimg}>
+                    <img className={classes.galleryImg} alt="Gallery: Materials 2" src={proj5} />
+                </div>
+                <div className={classes.galleryimg}>
+                    <img className={classes.galleryImg} alt="Gallery: Trucks" src={proj6} />
+                </div>
+                <div className={classes.galleryimg}>
+                    <img className={classes.galleryImg} alt="Gallery: Removal" src={proj7} />
+                </div>
+                <div className={classes.galleryimg}>
+                    <img className={classes.galleryImg} alt="Gallery: Installation" src={proj8} />
+                </div>
+                <div className={classes.galleryimg}>
+                    <img className={classes.galleryImg} alt="Gallery: Safety" src={proj9} />
+                </div>
             </div>
-            <article className={classes.text}>
-              <Typography variant="h5" component="h2" style={{ marginTop: 40 }}>
-                Insurance Restoration Experts
-              </Typography>
-              <Split dark={true} />
-              <ul>
-                <li>
-                  Experienced working with insurance adjusters scope of work
-                </li>
-                <li>Offer Roof Inspections﻿</li>
-                <li>
-                  Offer 24-Hour Emergency Service to prevent and mitigate
-                  further damage
-                </li>
-              </ul>
-            </article>
           </div>
         </Container>
         <Container style={{ margin: "100px auto", textAlign: "center" }}>
@@ -200,4 +207,4 @@ const GeneralContractor = ({ classes }) => {
   )
 }
 
-export default withStyles(styles)(GeneralContractor)
+export default withStyles(styles)(PhotoGallery)

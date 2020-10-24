@@ -1,5 +1,5 @@
 import React from "react"
-import { Typography, Button, Container } from "@material-ui/core"
+import { Typography, Container } from "@material-ui/core"
 import { Link } from "gatsby-theme-material-ui"
 import { withStyles } from "@material-ui/styles"
 
@@ -10,9 +10,8 @@ import ImageContainer from "../components/imagecontainer"
 import Darken from "../components/darken"
 
 // Images
-import generalContractorImg from "../images/general_contractor.jpg"
+import residentialRoofingImg from "../images/residential-roofing-main.jpg"
 import topdownImg from "../images/topdown.jpg"
-import insuranceRestorationExpertsImg from "../images/insuranceRestorationExperts.jpg"
 import generalContractor1Img from "../images/generalContractor1.jpg"
 import generalContractor2Img from "../images/generalContractor2.jpg"
 import generalContractor3Img from "../images/generalContractor3.jpg"
@@ -98,7 +97,7 @@ const RoofingInstallation = ({ classes }) => {
             </article>
             <div className={classes.image}>
               <ImageContainer
-                image={generalContractorImg}
+                image={residentialRoofingImg}
                 alt="Roofing Installation — Etna, OH — Mays-Wilson Construction Company, LLC"
               />
             </div>
@@ -193,9 +192,9 @@ const RoofingInstallation = ({ classes }) => {
           </article>
         </Container>
         <section className={classes.imagesContainer}>
-          <img src={generalContractor1Img} className={classes.footerImg} />
-          <img src={generalContractor2Img} className={classes.footerImg} />
-          <img src={generalContractor3Img} className={classes.footerImg} />
+          <img src={generalContractor1Img} alt="General Contractrator" className={classes.footerImg} />
+          <img src={generalContractor2Img} alt="General Contractrator" className={classes.footerImg} />
+          <img src={generalContractor3Img} alt="General Contractrator" className={classes.footerImg} />
         </section>
       </div>
     </Layout>

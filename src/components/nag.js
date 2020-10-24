@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import MenuIcon from '@material-ui/icons/Menu'
-import { MenuItem, Menu, IconButton, Button, Typography,} from "@material-ui/core"
+import { MenuItem, Menu, IconButton, Button, Typography,Link} from "@material-ui/core"
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import RoomIcon from '@material-ui/icons/Room';
@@ -131,13 +131,13 @@ const Nag = ({classes}) => {
                                     <ListItemIcon>
                                         <DraftsIcon fontSize="small" />
                                     </ListItemIcon>
-                                    <ListItemText primary="Contact Us" />
+                                    <Link href="/find-us"><ListItemText primary="Contact Us" /></Link>
                                 </MenuItem>
                                 <MenuItem onClick={handleClose}>
                                     <ListItemIcon>
                                         <RoomIcon fontSize="small" />
                                     </ListItemIcon>
-                                    <ListItemText primary="Get Directions" />
+                                    <Link target="_blank" href="https://www.google.com/maps?ll=39.958144,-82.678278&z=15&t=m&hl=en&gl=US&mapclient=embed&q=743+Columbus+St+Etna,+OH+43018"><ListItemText primary="Get Directions" /></Link>
                                 </MenuItem>
                             </StyledMenu>
                             <IconButton color="default" onClick={handleClick}><MenuIcon /></IconButton>
