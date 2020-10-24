@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet"
 import Header from './header'
 import SideDrawer from './drawer'
 import Actionbar from './actionbar'
+import QuickLinks from './quicklinks'
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import Nag from './nag'
 import theme from './theme';
@@ -48,6 +49,7 @@ const Layout = ({ classes, children }) => {
       <div style={{marginBottom: 95}}>
         <Actionbar />
       </div>
+      <QuickLinks />
     </MuiThemeProvider>
   )
 }

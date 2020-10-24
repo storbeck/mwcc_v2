@@ -12,5 +12,12 @@ theme.typography.h5 = {
     fontWeight: 400
   },
 }
+theme.typography.h3 = {
+  fontSize: '1.4rem',
+  [theme.breakpoints.up('md')]: {
+    fontSize: '3rem',
+    fontWeight: 400
+  },
+}
 
 export default theme;

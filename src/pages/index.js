@@ -10,7 +10,6 @@ import Layout from '../components/layout'
 import Split from '../components/split'
 import Hero from '../components/hero'
 import ImageContainer from '../components/imagecontainer'
-import QuickLinks from '../components/quicklinks'
 import Darken from '../components/darken'
 
 // Images
@@ -26,10 +25,6 @@ import insulationImg from '../images/insulation.jpg'
 import andMoreImg from '../images/and_more.jpg'
 import whyMaysWilsonImg from '../images/why_mays.jpg'
 import ourReviewsImg from '../images/our_reviews.jpg'
-
-const Highlight = styled.span`
- color: rgb(4, 76, 146);
-`
 
 var items = [
   {
@@ -67,6 +62,9 @@ function Item(props)
 }
 
 const styles = theme => ({
+  highlight: {
+    color: theme.palette.primary.main
+  },
   section: {
     [theme.breakpoints.up('md')]: {
       display: 'flex',
@@ -178,7 +176,7 @@ const Home = ({ classes }) => {
         <Button component={Link} variant="contained" color="primary" size="large" href="tel:614-532-3026">CALL TODAY FOR A NO OBLIGATION QUOTE</Button>
       </Hero>
       <Container>
-        <Typography variant="h5" component="h2" style={{marginTop: 40}}><Highlight>Property Restoration</Highlight> Experts!</Typography>
+        <Typography variant="h5" component="h2" style={{marginTop: 40}}><span className={classes.highlight}>Property Restoration</span> Experts!</Typography>
         <Split dark={true} />
         <div className={classes.section}>
           <article className={classes.text}>
@@ -327,7 +325,6 @@ const Home = ({ classes }) => {
           </Typography>
         </div>
       </Container>
-      <QuickLinks />
     </Layout>
   )
 }

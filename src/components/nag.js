@@ -66,6 +66,7 @@ const styles = (theme) => ({
     contactBtn: {
         display: 'none',
         [theme.breakpoints.up('md')]: {
+            display: 'block',
             position: 'fixed',
             right: 80,
             bottom: 0,
@@ -97,7 +98,7 @@ const StyledMenu = withStyles({
   ));
 
 const Nag = ({classes}) => {
-    const [open, toggleNag] = useState(false)
+    const [open, toggleNag] = useState(true)
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {

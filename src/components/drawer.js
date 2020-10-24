@@ -5,6 +5,7 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 import {Link} from "gatsby"
 import styled from "styled-components";
+import links from '../data/links'
 import SocialIcons from './socialicons'
 import Facebook from "../images/icons/facebook.svg"
 import Instagram from "../images/icons/instagram.svg"
@@ -55,17 +56,6 @@ const SideDrawer = props => {
     props.toggle(open)
   }
 
-  const links = [
-    { name: 'Home', route: '/' },
-    { name: 'Our Process', route: '/general-contractor' },
-    { name: 'Residential Roofing', route: '/roofing-installation' },
-    { name: 'Commercial Roof Repairs', route: '/roofing-repair' },
-    { name: 'Gutters', route: '/gutter-installation' },
-    { name: 'Siding', route: '/siding-installation' },
-    { name: 'Products', route: '/our-brands' },
-    { name: 'Project Gallery', route: '/photo-gallery' },
-    { name: 'Contact Us Today!', route: '/find-us' },
-  ]
   const list = () => (
     <div
       role="presentation"
