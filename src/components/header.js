@@ -49,6 +49,12 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'column'
     },
+    socialIcons: {
+        width: 32,
+        borderRadius: '50%',
+        marginRight: 10,
+        cursor: 'pointer'
+    }
 
 })
 
@@ -64,10 +70,14 @@ const Header = ({classes, open}) => {
                         <MenuIcon />
                     </IconButton>
                     <div className={classes.desktopOnly}>
-                        <SocialIcons>
-                            <a href="https://www.facebook.com/MaysWilsonC/" target="_blank" rel="noreferrer"><img src={Facebook }alt="Facebook" /></a>
-                            <a href="https://www.instagram.com/roofthirty/" target="_blank" rel="noreferrer"><img src={Instagram} alt="Instagram" /></a>
-                        </SocialIcons>
+                        <div>
+                            <a href="https://www.facebook.com/MaysWilsonC/" target="_blank" rel="noreferrer">
+                                <img src={Facebook } alt="Facebook" className={classes.socialIcons} width={32} />
+                            </a>
+                            <a href="https://www.instagram.com/roofthirty/" target="_blank" rel="noreferrer">
+                                <img src={Instagram} alt="Instagram" className={classes.socialIcons} width={32} />
+                            </a>
+                        </div>
 
                         <Typography variant="subtitle2" component="p" style={{color: "white"}}>Locally Owned & Operated</Typography>
                         <Typography variant="subtitle2" component="p" style={{color: "white"}}>Serving Columbus Ohio & the Surrounding Area</Typography>

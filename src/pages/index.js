@@ -7,7 +7,6 @@ import {withStyles} from '@material-ui/styles'
 // Internal Components
 import Layout from '../components/layout'
 import Split from '../components/split'
-import Hero from '../components/hero'
 import ImageContainer from '../components/imagecontainer'
 import Darken from '../components/darken'
 
@@ -162,18 +161,39 @@ const styles = theme => ({
       margin: 20,
       width: '50%'
     }
+  },
+  hero: {
+    backgroundImage: `url(${heroImg})`,
+    backgroundPosition: '50% 50%',
+    backgroundAttachment: 'scroll',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    height: 370,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    flexDirection: 'column'
+  },
+  heroText: {
+    position: 'relative',
+    zIndex: 1,
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 700,
+    textShadow: 'rgb(0, 0, 0) 0px 0px 20px',
+    marginBottom: 30
   }
 })
-
 
 const Home = ({ classes }) => {
   return (
     <Layout>
-      <Hero img={heroImg}>
+      <div className={classes.hero}>
         <Darken />
-        <Typography variant="h4" component="h1">INTEGRITY - QUALITY - CUSTOMER FOCUS</Typography>
+        <Typography variant="h4" component="h1" className={classes.heroText}>INTEGRITY - QUALITY - CUSTOMER FOCUS</Typography>
         <Button component={Link} variant="contained" color="primary" size="large" href="tel:614-532-3026">CALL TODAY FOR A NO OBLIGATION QUOTE</Button>
-      </Hero>
+      </div>
       <Container>
         <Typography variant="h5" component="h2" style={{marginTop: 40}}><span className={classes.highlight}>Property Restoration</span> Experts!</Typography>
         <Split dark={true} />
