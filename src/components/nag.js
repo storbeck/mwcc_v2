@@ -36,7 +36,7 @@ const styles = (theme) => ({
         bottom: -200,
         left: 0,
         right: 0,
-        height: 200,
+        height: 220,
         backgroundColor: 'white',
         padding: '30px 20px',
         animation: '$slide 1s forwards',

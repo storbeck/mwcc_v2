@@ -34,7 +34,7 @@ const styles = theme => ({
   },
   container: {
     width: '75%',
-    margin: '0 100px'
+    margin: '0 auto',
   }
 })
 

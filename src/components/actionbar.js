@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Fab, Container} from "@material-ui/core"
-import MenuIcon from '@material-ui/icons/Menu'
+import { Button, Container} from "@material-ui/core"
 import {withStyles} from '@material-ui/styles'
 
 const styles = (theme) => ({
@@ -22,10 +21,7 @@ const Actionbar = ({classes}) => {
     return (
         <div className={classes.root}>
             <Container style={{display: "flex", justifyContent: "space-between"}}>
-                <Fab color="primary" aria-label="menu" style={{marginRight: 10}}>
-                    <MenuIcon />
-                </Fab>
-                <Button variant="contained" color="primary" size="large" style={{flexGrow: 1}} aria-label="Contact">Contact</Button>
+                <Button href="/schedule" variant="contained" color="primary" size="large" style={{flexGrow: 1}} aria-label="Contact">Schedule Appointment</Button>
             </Container>
         </div>
     );
