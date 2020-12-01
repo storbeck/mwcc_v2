@@ -7,7 +7,6 @@ import logo from '../images/appbar.jpg';
 import Facebook from "../images/icons/facebook.svg"
 import Instagram from "../images/icons/instagram.svg"
 import {withStyles} from '@material-ui/styles'
-import SocialIcons from './socialicons'
 
 const styles = theme => ({
     root: {
@@ -99,7 +98,7 @@ const Header = ({classes, open}) => {
                 <div className={classes.desktopOnly} style={{width: '100%'}}>
                     <div style={{position: 'absolute', left: -10, right: 0, height: 1, backgroundColor: 'rgb(2, 48, 89)', marginTop: 20}}>&nbsp;</div>
                     <div style={{marginTop: 40, display: 'flex', justifyContent: 'space-around', width: '100%'}}>
-                        { links.map(link => <Link href={link.route} style={{color: 'white', fontWeight: 500}}>{link.name}</Link>) }
+                        { links.map((link, idx) => <Link key={idx} href={link.route} style={{color: 'white', fontWeight: 500}}>{link.name}</Link>) }
                     </div>
                 </div>
             </Toolbar>

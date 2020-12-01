@@ -3,7 +3,7 @@ const theme = createMuiTheme()
 
 theme.palette.primary = {
   main: 'rgb(4, 76, 146)',
-  contrastText: 'white',
+  contrastText: '#fff',
 }
 
 theme.typography.h5 = {

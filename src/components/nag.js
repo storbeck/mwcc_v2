@@ -117,15 +117,15 @@ const Nag = ({classes}) => {
                     <IconButton className={classes.closeBtn} color="default" onClick={() => toggleNag(false)}><CloseIcon /></IconButton>
                     <div className="container">
                         <Typography className={classes.header} variant="h5" component="h1">Let's Talk!</Typography>
-                        <Typography variant="subtitle" component="p">Thanks for stopping by! We're here to help, please don't hestitate to reach out.</Typography>
+                        <Typography variant="subtitle1" component="p">Thanks for stopping by! We're here to help, please don't hestitate to reach out.</Typography>
                         <div style={{display: "flex", marginTop: 20}}>
-                            <Button variant="contained" color="primary" size="large" style={{flexGrow: 1}}>Schedule Now</Button>
+                            <Button href="/schedule" variant="contained" color="primary" size="large" style={{flexGrow: 1}}>Schedule Now</Button>
                             <StyledMenu id="customized-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
                                 <MenuItem onClick={handleClose}>
                                     <ListItemIcon>
                                         <EventIcon fontSize="small" />
                                     </ListItemIcon>
-                                    <ListItemText primary="Schedule Now" />
+                                    <Link href="/schedule"><ListItemText primary="Schedule Now" /></Link>
                                 </MenuItem>
                                 <MenuItem onClick={handleClose}>
                                     <ListItemIcon>

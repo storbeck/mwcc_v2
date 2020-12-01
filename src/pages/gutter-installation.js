@@ -177,9 +177,9 @@ const GutterInstallation = ({ classes }) => {
           </article>
         </Container>
         <section className={classes.imagesContainer}>
-          <img src={generalContractor1Img} alt="General Contractrator" className={classes.footerImg} />
-          <img src={generalContractor2Img} alt="General Contractrator" className={classes.footerImg} />
-          <img src={generalContractor3Img} alt="General Contractrator" className={classes.footerImg} />
+          <img src={generalContractor1Img} alt="General Contractor" className={classes.footerImg} />
+          <img src={generalContractor2Img} alt="General Contractor" className={classes.footerImg} />
+          <img src={generalContractor3Img} alt="General Contractor" className={classes.footerImg} />
         </section>
       </div>
     </Layout>
