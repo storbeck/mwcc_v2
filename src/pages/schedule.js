@@ -48,6 +48,8 @@ const Schedule = ({ classes }) => {
   const [referral, setReferral] = useState("")
   const [emailError, setEmailError] = useState(false)
 
+  sessionStorage.setItem('close_nag', true)
+
   const providers = [
       "Greg Becker",
       "Brad Mays",

@@ -98,7 +98,10 @@ const StyledMenu = withStyles({
   ));
 
 const Nag = ({classes}) => {
-    const [open, toggleNag] = useState(true)
+    const alreadyOpened = sessionStorage.getItem('close_nag')
+    console.log(alreadyOpened);
+
+    const [open, toggleNag] = useState(alreadyOpened === null)
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -109,12 +112,17 @@ const Nag = ({classes}) => {
         setAnchorEl(null);
     };
 
+    const closeNag = (val) => {
+        sessionStorage.setItem('close_nag', val)
+        toggleNag(val)
+    }
+
     return (
         <div className={classes.root}>
             <div className={open ? undefined : classes.hidden}>
                 <div className={classes.shade}>&nbsp;</div>
                 <div className={classes.popup}>
-                    <IconButton className={classes.closeBtn} color="default" onClick={() => toggleNag(false)}><CloseIcon /></IconButton>
+                    <IconButton className={classes.closeBtn} color="default" onClick={() => closeNag(false)}><CloseIcon /></IconButton>
                     <div className="container">
                         <Typography className={classes.header} variant="h5" component="h1">Let's Talk!</Typography>
                         <Typography variant="subtitle1" component="p">Thanks for stopping by! We're here to help, please don't hestitate to reach out.</Typography>
@@ -150,7 +158,7 @@ const Nag = ({classes}) => {
                     variant="contained" 
                     color="primary" 
                     size="large" 
-                    onClick={() => toggleNag(true)}>Contact</Button>
+                    onClick={() => closeNag(true)}>Contact</Button>
             </div>
         </div>
     )
