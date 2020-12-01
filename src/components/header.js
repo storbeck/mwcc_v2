@@ -19,6 +19,7 @@ const styles = theme => ({
         minHeight: 119,
     },
     mobileOnly: {
+        marginTop: 10,
         [theme.breakpoints.up('md')]: {
             display: 'none',
         },
@@ -43,7 +44,6 @@ const styles = theme => ({
         paddingLeft: '16px',
         right: 0,
         position: 'relative',
-        width: '100%',
         background: 'transparent',
         display: 'flex',
         flexDirection: 'column'
