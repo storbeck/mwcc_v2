@@ -47,8 +47,9 @@ const Schedule = ({ classes }) => {
   const [salesman, setSalesman] = useState("")
   const [referral, setReferral] = useState("")
   const [emailError, setEmailError] = useState(false)
-
-  sessionStorage.setItem('close_nag', true)
+  
+  const windowGlobal = typeof window !== 'undefined' && window
+  windowGlobal.sessionStorage.setItem('close_nag', true)
 
   const providers = [
       "Greg Becker",

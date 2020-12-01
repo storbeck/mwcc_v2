@@ -98,8 +98,8 @@ const StyledMenu = withStyles({
   ));
 
 const Nag = ({classes}) => {
-    const alreadyOpened = sessionStorage.getItem('close_nag')
-    console.log(alreadyOpened);
+    const windowGlobal = typeof window !== 'undefined' && window
+    const alreadyOpened = windowGlobal.sessionStorage.getItem('close_nag')
 
     const [open, toggleNag] = useState(alreadyOpened === null)
     const [anchorEl, setAnchorEl] = React.useState(null);
