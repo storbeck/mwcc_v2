@@ -48,8 +48,9 @@ const Schedule = ({ classes }) => {
   const [referral, setReferral] = useState("")
   const [emailError, setEmailError] = useState(false)
   
-  const windowGlobal = typeof window !== 'undefined' && window
-  windowGlobal.sessionStorage.setItem('close_nag', true)
+  if (typeof window !== 'undefined') {
+    window.sessionStorage.setItem('close_nag', true)
+  }
 
   const providers = [
       "Greg Becker",
@@ -80,7 +81,7 @@ const Schedule = ({ classes }) => {
         <Container>
           <div className={classes.section}>
             <MuiPickersUtilsProvider utils={MomentUtils}>
-              <form className={classes.container} noValidate action="https://getform.io/f/1ed5581f-02ec-40ca-aba9-aeb5c0ba6af7" method="POST">
+              <form className={classes.container} noValidate action="https://getform.io/f/b0c3a569-efca-4ee3-bc67-67e1382c3941" method="POST">
                 <Typography variant="h3" component="h2" style={{ marginBottom: 20 }}>
                     Schedule an appointment
                 </Typography>

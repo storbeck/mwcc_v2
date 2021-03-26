@@ -10,7 +10,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: "Expert Construction - Etna, OH - Mays-Wilson Construction Company, LLC",
-    description: "This is where I write my thoughts.",
+    description: "Mays-Wilson Construction Company, LLC in Etna, OH, can be reached at 614-532-3026.",
     links: [
       { name: 'Home', route: '/' },
       { name: 'Our Process', route: '/general-contractor' },

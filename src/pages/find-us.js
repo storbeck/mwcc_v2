@@ -182,7 +182,7 @@ const FindUs = ({ classes }) => {
               Contact Form
             </Typography>
             <Split dark={true} />
-            <form action="https://formspree.io/f/storbeck@gmail.com" method="POST">
+            <form action="https://formspree.io/f/xknpeovk" method="POST">
                 <div>
                     <FormControl style={{width: '70%'}}>
                         <InputLabel htmlFor="name">Name</InputLabel>
